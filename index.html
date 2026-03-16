@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitall Tripathy | Energy Intelligence & Alignment Consultant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #FDFBF7;
+            --bg-secondary: #F5F0E8;
+            --bg-accent: #EDE6F0;
+            --text-primary: #2D2A26;
+            --text-secondary: #5C5650;
+            --text-muted: #8A847C;
+            --accent: #B8976B;
+            --accent-light: #D4AF37;
+            --border: #E5DED4;
+            --white: #FFFFFF;
+            --gold: #D4AF37;
+            --lilac: #C9B8D9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 24px 0;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+            padding: 16px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 100px;
+            background: var(--bg-primary);
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            max-width: 1200px;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 400px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            color: var(--accent-light);
+            font-weight: 500;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .hero-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.8s;
+        }
+
+        .hero-description {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            font-size: 17px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 1.2s;
+            justify-content: flex-start;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-image {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .section-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .framework-image {
+            width: 100%;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .framework-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .framework-full-image {
+            width: 100%;
+            margin-bottom: 48px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .framework-full-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .services-image {
+            width: 100%;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .services-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .cta-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .cta-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 18px 36px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--lilac);
+            color: var(--text-primary);
+            border: 2px solid var(--lilac);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--lilac);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 184, 217, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            color: var(--text-primary);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* My Story Section */
+        #my-story {
+            background: var(--white);
+        }
+
+        #my-story .section-title::after {
+            display: none;
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-content p {
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+        }
+
+        .story-content p:first-of-type {
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .story-highlight {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-style: italic;
+            color: var(--gold);
+            margin: 40px 0;
+            padding: 0 40px;
+        }
+
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-bottom: 60px;
+        }
+
+        .story-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .story-section-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .story-section p {
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+        }
+
+        .story-section p:first-of-type {
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Credentials Section */
+        #credentials {
+            background: var(--bg-primary);
+        }
+
+        .credentials-container {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .credential-row {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: start;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease;
+        }
+
+        .credential-row.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .credential-label {
+            text-align: right;
+            padding-top: 8px;
+        }
+
+        .credential-label h4 {
+            font-size: 26px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .credential-label span {
+            font-size: 13px;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .credential-progress {
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(180deg, var(--gold), var(--lilac));
+            transition: width 1s ease;
+            width: 0;
+        }
+
+        .credential-row.visible .progress-bar::before {
+            width: 4px;
+        }
+
+        .progress-bar:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            border-color: var(--gold);
+        }
+
+        .progress-info {
+            flex: 1;
+        }
+
+        .progress-info p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .progress-level {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+
+        .level-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-accent);
+            position: relative;
+        }
+
+        .level-dot.active {
+            background: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 0 8px rgba(212, 175, 55, 0.1);
+            }
+        }
+
+        .level-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .credential-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, var(--gold), transparent);
+            margin: 8px 0;
+            opacity: 0.3;
+        }
+
+        .animated-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--lilac), var(--gold));
+            background-size: 200% 100%;
+            animation: shimmer 2s linear infinite;
+            border-radius: 0 0 8px 8px;
+            width: 0;
+            transition: width 1.2s ease;
+        }
+
+        .credential-row.visible .animated-line {
+            width: 100%;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .icon-badge {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bg-accent), var(--white));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            border: 2px solid var(--gold);
+            position: relative;
+        }
+
+        .icon-badge::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            animation: ring 2s ease-out infinite;
+            opacity: 0;
+        }
+
+        .credential-row.visible .icon-badge::after {
+            animation: ring 2s ease-out infinite;
+        }
+
+        @keyframes ring {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Framework Section */
+        #framework {
+            background: #F5F0F8;
+        }
+
+        .framework-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--text-secondary);
+            font-size: 19px;
+        }
+
+        .framework-intro strong {
+            color: var(--text-primary);
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .framework-card {
+            background: var(--white);
+            padding: 40px 32px;
+            border-radius: 12px;
+            border: 1px solid rgba(201, 184, 217, 0.3);
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .framework-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--lilac));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--lilac);
+        }
+
+        .framework-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .framework-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .framework-card.animate-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .framework-layer {
+            font-size: 12px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .framework-layer::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: var(--lilac);
+        }
+
+        .framework-card h4 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .framework-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .framework-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 120px;
+            font-weight: 600;
+            color: var(--lilac);
+            opacity: 0.08;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .framework-card:hover .framework-number {
+            opacity: 0.12;
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        /* Services Section */
+        #services {
+            background: var(--bg-primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            align-items: stretch;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 48px 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card.animate-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--lilac));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--lilac);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card h3 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .service-duration {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .service-format {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 24px;
+            padding-left: 0;
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .service-card li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 15px;
+            text-align: left;
+        }
+
+        .service-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .service-cta {
+            display: flex;
+            justify-content: center;
+            margin-top: auto;
+        }
+
+        .service-cta .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            white-space: nowrap;
+            padding: 14px 24px;
+            font-size: 14px;
+        }
+
+        .whatsapp-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .service-price {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        /* Session Format Section */
+        #session-format {
+            background: var(--white);
+        }
+
+        .format-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            align-items: stretch;
+        }
+
+        .format-image {
+            position: relative;
+            height: auto;
+            min-height: auto;
+        }
+
+        .format-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px 0 0 12px;
+        }
+
+        .format-content {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--bg-primary);
+            padding: 48px;
+            border-radius: 0 12px 12px 0;
+            border: 1px solid var(--border);
+            border-left: none;
+        }
+
+        .format-intro {
+            color: var(--text-primary);
+            font-size: 18px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .format-steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .format-step {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px;
+            background: var(--white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .step-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #9B7DB5;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #E8DFF0;
+            border-radius: 50%;
+            margin-left: 4px;
+            line-height: 1;
+        }
+
+        .format-step:hover {
+            transform: translateX(8px);
+            border-color: var(--gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #9B7DB5;
+            font-weight: 600;
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #E8DFF0;
+            border-radius: 50%;
+        }
+
+        .step-info h4 {
+            font-size: 17px;
+            margin-bottom: 2px;
+            color: var(--text-primary);
+        }
+
+        .step-info p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .format-note {
+            text-align: left;
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 24px;
+            padding: 16px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .format-step {
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .step-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            color: var(--lilac);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .format-step h4 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .format-step p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Final CTA Section */
+        #begin {
+            background: linear-gradient(135deg, #F5F0F8 0%, #FDFBF7 50%, #F5F0E8 100%);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        #begin::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--lilac));
+        }
+
+        #begin::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--lilac), var(--gold));
+        }
+
+        #begin h2 {
+            font-size: 56px;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+        }
+
+        #begin .btn-primary {
+            background: var(--lilac);
+            color: var(--text-primary);
+            border-color: var(--lilac);
+        }
+
+        #begin .btn-primary:hover {
+            background: transparent;
+            color: var(--lilac);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            padding: 60px 0 30px;
+            color: var(--white);
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-section h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin: 0;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--white);
+        }
+
+        .footer-bottom {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-bottom-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-bottom-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .footer-copyright {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+
+        .footer-made-with {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-contact a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 1023px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-image img {
+                width: 300px;
+                height: 380px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .framework-grid,
+            .format-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 24px;
+                gap: 20px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 120px 24px 80px;
+            }
+
+            .hero-container {
+                gap: 32px;
+            }
+
+            .hero-image img {
+                width: 260px;
+                height: 320px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+                letter-spacing: 1px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-quote {
+                font-size: 20px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .story-highlight {
+                font-size: 22px;
+                padding: 0;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .story-image {
+                order: -1;
+            }
+
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .story-section-image {
+                order: -1;
+            }
+
+            .format-container {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .format-image {
+                order: -1;
+                min-height: auto;
+            }
+
+            .format-image img {
+                height: 300px;
+                border-radius: 12px 12px 0 0;
+            }
+
+            .format-content {
+                padding: 32px 24px;
+                border-radius: 0 0 12px 12px;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .credential-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .credential-label {
+                text-align: left;
+            }
+
+            .progress-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                padding: 20px;
+            }
+
+            .progress-level {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .framework-grid,
+            .format-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .framework-grid {
+                gap: 20px;
+            }
+
+            .format-steps {
+                gap: 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 32px 24px;
+            }
+
+            #begin h2 {
+                font-size: 36px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .footer-bottom p {
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">Sitall Tripathy</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#my-story">My Story</a></li>
+                <li><a href="#credentials">Credentials</a></li>
+                <li><a href="#framework">Framework</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#session-format">Session Format</a></li>
+                <li><a href="#begin">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="Images/Sitall Image.jpg" alt="Sitall Tripathy">
+            </div>
+            <div class="hero-content">
+                <h1>Sitall Tripathy</h1>
+                <p class="hero-subtitle">Energy Intelligence & Alignment Consultant</p>
+                <p class="hero-quote">"Clarity begins when you start understanding the energy behind your life."</p>
+                <p class="hero-description">
+                    Energy Intelligence for structured life alignment.<br>
+                    Ancient tools explained in a clear, practical way for modern life.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#begin" class="btn btn-primary">Book a Consultation</a>
+                    <a href="#framework" class="btn btn-secondary">Explore the Framework</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Story Section -->
+    <section id="my-story" class="animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">My Story</h2>
+            
+            <!-- Part 1 -->
+            <div class="story-section">
+                <div class="story-part">
+                    <p>I was introduced to energetic sciences from a young age.</p>
+                    <p>
+                        I grew up in a family where palm reading and astrology were practiced with discipline and respect. 
+                        My grandfather read palms. His father was a professional astrologer. Conversations about timing, 
+                        patterns, and life cycles were normal in my childhood.
+                    </p>
+                    <p>
+                        As I grew older, I explored modern education and built my career in mind-body disciplines. 
+                        I studied fitness, nervous system regulation, coaching, and structured wellness systems.
+                    </p>
+                </div>
+                <div class="story-section-image">
+                    <img src="Images/1.jpg" alt="My Story">
+                </div>
+            </div>
+
+            <!-- Part 2 -->
+            <div class="story-section">
+                <div class="story-section-image">
+                    <img src="Images/2.jpg" alt="Energy Intelligence">
+                </div>
+                <div class="story-part">
+                    <p class="story-highlight">
+                        "Energy affects clarity. Clarity affects decisions. Decisions shape life direction."
+                    </p>
+                    <p>
+                        Over time, I realized something important. Instead of separating ancient knowledge and 
+                        modern learning, I chose to integrate them in a structured way.
+                    </p>
+                    <p>
+                        Today, I use practical tools like numerology, tarot, and vaastu as clarity frameworks, 
+                        not for prediction, but for alignment. This work forms the Energy pillar of a larger 
+                        Mind–Body–Energy ecosystem I am building.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section id="credentials" class="animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">Credentials & Formal Training</h2>
+            
+            <div class="credentials-container">
+                <!-- Reiki -->
+                <div class="credential-row">
+                    <div class="credential-label">
+                        <h4>Reiki</h4>
+                        <span>Energy Healing</span>
+                    </div>
+                    <div class="credential-progress">
+                        <div class="progress-bar">
+                            <div class="progress-info">
+                                <p>Level 1 & Level 2 Certified — Trained for personal energy alignment and disciplined self-regulation.</p>
+                            </div>
+                            <div class="progress-level">
+                                <span class="level-dot active"></span>
+                                <span class="level-dot active"></span>
+                                <span class="level-text">Level 2</span>
+                            </div>
+                        </div>
+                        <div class="animated-line"></div>
+                    </div>
+                </div>
+
+                <!-- Pranic Healing -->
+                <div class="credential-row">
+                    <div class="credential-label">
+                        <h4>Pranic Healing</h4>
+                        <span>Energy Hygiene</span>
+                    </div>
+                    <div class="credential-progress">
+                        <div class="progress-bar">
+                            <div class="progress-info">
+                                <p>Level 1 & Level 2 Certified — Focused on foundational energy hygiene and regulation principles.</p>
+                            </div>
+                            <div class="progress-level">
+                                <span class="level-dot active"></span>
+                                <span class="level-dot active"></span>
+                                <span class="level-text">Level 2</span>
+                            </div>
+                        </div>
+                        <div class="animated-line"></div>
+                    </div>
+                </div>
+
+                <!-- Numerology -->
+                <div class="credential-row">
+                    <div class="credential-label">
+                        <h4>Numerology</h4>
+                        <span>Blueprint Analysis</span>
+                    </div>
+                    <div class="credential-progress">
+                        <div class="progress-bar">
+                            <div class="progress-info">
+                                <p>Basic & Advanced Certification — Core number analysis, life path decoding, cycle interpretation, and name vibration assessment.</p>
+                            </div>
+                            <div class="progress-level">
+                                <span class="level-dot active"></span>
+                                <span class="level-dot active"></span>
+                                <span class="level-text">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="animated-line"></div>
+                    </div>
+                </div>
+
+                <!-- Tarot -->
+                <div class="credential-row">
+                    <div class="credential-label">
+                        <h4>Tarot</h4>
+                        <span>Clarity Tool</span>
+                    </div>
+                    <div class="credential-progress">
+                        <div class="progress-bar">
+                            <div class="progress-info">
+                                <p>Certified Tarot Practitioner — Used as a clarity and awareness tool.</p>
+                            </div>
+                            <div class="progress-level">
+                                <span class="level-dot active"></span>
+                                <span class="level-text">Certified</span>
+                            </div>
+                        </div>
+                        <div class="animated-line"></div>
+                    </div>
+                </div>
+
+                <!-- Vaastu -->
+                <div class="credential-row">
+                    <div class="credential-label">
+                        <h4>Vaastu</h4>
+                        <span>Environmental</span>
+                    </div>
+                    <div class="credential-progress">
+                        <div class="progress-bar">
+                            <div class="progress-info">
+                                <p>Diploma & Advanced Certification in Vaastu Shastra — Directional mapping, element balance, and environmental alignment principles.</p>
+                            </div>
+                            <div class="progress-level">
+                                <span class="level-dot active"></span>
+                                <span class="level-dot active"></span>
+                                <span class="level-text">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="animated-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework Section -->
+    <section id="framework" class="animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">The Energy Intelligence Framework</h2>
+            <p class="framework-intro">
+                <strong>Energy influences perception.</strong> Perception influences decisions. Decisions influence direction.
+            </p>
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <span class="framework-number">01</span>
+                    <p class="framework-layer">Layer 1</p>
+                    <h4>Situational Awareness</h4>
+                    <p>Tarot is used to understand current patterns and emotional influences.</p>
+                </div>
+                <div class="framework-card">
+                    <span class="framework-number">02</span>
+                    <p class="framework-layer">Layer 2</p>
+                    <h4>Blueprint Decoding</h4>
+                    <p>Advanced numerology helps decode strengths, patterns, and life cycles.</p>
+                </div>
+                <div class="framework-card">
+                    <span class="framework-number">03</span>
+                    <p class="framework-layer">Layer 3</p>
+                    <h4>Environmental Alignment</h4>
+                    <p>Vaastu principles help align home or workspace for better balance.</p>
+                </div>
+                <div class="framework-card">
+                    <span class="framework-number">04</span>
+                    <p class="framework-layer">Layer 4</p>
+                    <h4>Energetic Stabilization</h4>
+                    <p>Energy regulation practices support clarity and steadiness.</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 48px; color: var(--text-secondary); font-size: 16px; font-style: italic;">
+                This is not about predicting the future. It is about understanding patterns and making better decisions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Integrated Energy Alignment Session</h3>
+                    <p class="service-duration">90 Minutes • Online</p>
+                    <p class="service-format">Format — Online</p>
+                    <ul>
+                        <li>A structured session that combines tarot insight, advanced numerology, cycle understanding, and practical vaastu guidance.</li>
+                        <li>You receive: pattern clarity, life cycle understanding, environmental suggestions, a clear alignment roadmap.</li>
+                    </ul>
+                    <div class="service-cta">
+                        <a href="https://wa.me/919403892574?text=Hi Sitall, I'm interested in the Integrated Energy Alignment Session. Could you please share the fees details?" target="_blank" class="btn btn-primary">
+                            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            DM on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>Numerology Blueprint Consultation</h3>
+                    <p class="service-duration">60 Minutes • Online</p>
+                    <p class="service-format">Format : Online</p>
+                    <ul>
+                        <li>A focused and structured numerology session.</li>
+                        <li>You receive: core number analysis, strength and friction understanding, current cycle insights, timing guidance, optional name vibration review.</li>
+                    </ul>
+                    <div class="service-cta">
+                        <a href="https://wa.me/919403892574?text=Hi Sitall, I'm interested in the Numerology Blueprint Consultation. Could you please share the fees details?" target="_blank" class="btn btn-primary">
+                            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            DM on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Session Format Section -->
+    <section id="session-format" class="animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">Session Format</h2>
+            <div class="format-container">
+                <div class="format-image">
+                    <img src="Images/3.jpg" alt="Session Format">
+                </div>
+                <div class="format-content">
+                    <p class="format-intro">
+                        All sessions are conducted online via Zoom.
+                    </p>
+                    <div class="format-steps-container">
+                        <div class="format-step">
+                            <span class="step-number">1</span>
+                            <div class="step-info">
+                                <h4>Schedule</h4>
+                                <p>Schedule your session</p>
+                            </div>
+                        </div>
+                        <div class="format-step">
+                            <span class="step-number">2</span>
+                            <div class="step-info">
+                                <h4>Intake</h4>
+                                <p>Complete a pre-consult intake form</p>
+                            </div>
+                        </div>
+                        <div class="format-step">
+                            <span class="step-number">3</span>
+                            <div class="step-info">
+                                <h4>Consult</h4>
+                                <p>Attend the consultation</p>
+                            </div>
+                        </div>
+                        <div class="format-step">
+                            <span class="step-number">4</span>
+                            <div class="step-info">
+                                <h4>Summary</h4>
+                                <p>Receive a personalized summary</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="format-note">
+                        Post-session clarification support is available for 5-7 days on WhatsApp.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="begin" class="animate-on-scroll">
+        <div class="container">
+            <h2>Begin With Clarity.</h2>
+            <a href="https://calendly.com/sitalltripathy/discovery-call?month=2026-03" target="_blank" class="btn btn-primary">Book Your Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-section">
+                    <h4>Sitall Tripathy</h4>
+                    <p>ICF-PCC Executive Coach | Life Coach | Nervous System Strategist</p>
+                    <p style="margin-top: 16px;">Email: <a href="mailto:contact@sitalltripathy.com">contact@sitalltripathy.com</a></p>
+                    <p>Phone: <a href="tel:+919403892574">+91 94038 92574</a></p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/in/sitalltripathy" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://wa.me/919403892574" target="_blank" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                        <a href="https://instagram.com/sitalltripathy" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://facebook.com/sitalltripathy" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@sitalltripathy" target="_blank" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="https://twitter.com/sitalltripathy" target="_blank" aria-label="X">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>What This Work Is Not</h4>
+                    <p>This work does not replace medical, psychological, financial, or legal advice. It is not therapy or medical treatment. It serves as a structured alignment and clarity framework to support responsible decision-making.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2026 Sitall Tripathy. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="https://sitalltripathy.com/privacy-policy/">Privacy Policy</a>
+                    <a href="https://sitalltripathy.com/cookie-policy/">Cookie Policy</a>
+                    <a href="https://sitalltripathy.com/disclaimer/">Disclaimer</a>
+                    <a href="https://sitalltripathy.com/terms-of-service/">Terms of Service</a>
+                </div>
+                <p class="footer-made-with">Made with <span style="color: #e74c3c;">&hearts;</span> by <a href="https://thereviereestudios.in" target="_blank" style="color: var(--gold); text-decoration: none;">The Revieree Studios</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const animateOnScroll = document.querySelectorAll('.animate-on-scroll');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate credential rows with stagger
+                    const credentialRows = entry.target.querySelectorAll('.credential-row');
+                    credentialRows.forEach((row, index) => {
+                        setTimeout(() => {
+                            row.classList.add('visible');
+                        }, index * 150);
+                    });
+
+                    // Animate framework cards with stagger
+                    const frameworkCards = entry.target.querySelectorAll('.framework-card');
+                    frameworkCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animate-card');
+                        }, index * 150);
+                    });
+
+                    // Animate service cards with stagger
+                    const serviceCards = entry.target.querySelectorAll('.service-card');
+                    serviceCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animate-card');
+                        }, index * 150);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        animateOnScroll.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
